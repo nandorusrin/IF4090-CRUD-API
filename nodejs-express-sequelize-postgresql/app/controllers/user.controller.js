@@ -175,7 +175,7 @@ exports.update = (req, res) => {
     });
 };
 
-// Update an attributes of a User by the id in the request
+// Sofdelete an attributes of a User by the id in the request
 exports.delete = (req, res) => {
   const id = req.params.id;
   var date = new Date();
