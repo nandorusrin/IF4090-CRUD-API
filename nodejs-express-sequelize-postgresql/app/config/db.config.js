@@ -1,3 +1,9 @@
+/**
+ *  Configuration for PostgreSQL database & Sequelize
+ *  @author nandorusrin
+ *
+ */
+
 module.exports = {
     HOST: "localhost",
     USER: "postgres",

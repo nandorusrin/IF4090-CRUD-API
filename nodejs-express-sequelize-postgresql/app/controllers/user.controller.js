@@ -1,10 +1,16 @@
+/**
+ *  Implementation of CRUD functions for controller
+ *  @author nandorusrin
+ *
+ */
+
 const db = require("../models");
 const User = db.users;
 const Op = db.Sequelize.Op;
 
-// Create and Save a new User
+/** Create and Save a new User */
 exports.create = (req, res) => {
-  // Validate 
+  /** Validate  */
   var rgxNoNumber = /\d/g;
   if (rgxNoNumber.test(req.body.name)) {
     res.status(400).send({
@@ -21,7 +27,7 @@ exports.create = (req, res) => {
     return;
   }
 
-  // Create a User
+  /** Create a User */
   const user = {
     name: req.body.name,
     indonesianID: req.body.indonesianID,
@@ -29,7 +35,7 @@ exports.create = (req, res) => {
     deletedAt: req.body.deletedAt
   };
 
-  // Save User in the database
+  /** Save User in the database */
   User.create(user)
     .then(data => {
       res.send(data);
@@ -42,7 +48,7 @@ exports.create = (req, res) => {
     });
 };
 
-// Retrieve all Users from the database.
+/** Retrieve all Users from the database. */
 exports.findAll = (req, res) => {
   const name = req.query.name;
   var condition = name ? { name: { [Op.iLike]: `%${name}%` } } : null;
@@ -59,7 +65,7 @@ exports.findAll = (req, res) => {
     });
 };
 
-// Find a single User with an id
+/** Find a single User with an id */
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
@@ -74,9 +80,9 @@ exports.findOne = (req, res) => {
     });
 };
 
-// Update all attributes of a User by the id in the request
+/** Update all attributes of a User by the id in the request */
 exports.updateAll = (req, res) => {
-  // Validate 
+  /** Validate  */
   if (!req.body.name && !req.body.indonesianID && !req.body.birthday) {
     res.status(400).send({
       message: "Content can not be empty!"
@@ -128,7 +134,7 @@ exports.updateAll = (req, res) => {
         });
       });
   } else {
-    // Create a User
+    /** Create a User */
     const user = {
       name: req.body.name,
       indonesianID: req.body.indonesianID,
@@ -136,7 +142,7 @@ exports.updateAll = (req, res) => {
       deletedAt: req.body.deletedAt
     };
 
-    // Save User in the database
+    /** Save User in the database */
     User.create(user)
       .then(data => {
         res.send(data);
@@ -150,7 +156,7 @@ exports.updateAll = (req, res) => {
   }
 };
 
-// Update an attributes of a User by the id in the request
+/** Update an attributes of a User by the id in the request */
 exports.update = (req, res) => {
   const id = req.params.id;
 
@@ -175,7 +181,7 @@ exports.update = (req, res) => {
     });
 };
 
-// Sofdelete an attributes of a User by the id in the request
+/** Sofdelete an attributes of a User by the id in the request */
 exports.delete = (req, res) => {
   const id = req.params.id;
   var date = new Date();

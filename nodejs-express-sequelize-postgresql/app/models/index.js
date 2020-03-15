@@ -1,3 +1,10 @@
+/**
+ *  Initialize Sequelize for contain model
+ *  @author nandorusrin
+ *  @require package 'sequelize'
+ *
+ */
+
 const dbConfig = require("../config/db.config.js");
 
 const Sequelize = require("sequelize");
