@@ -218,19 +218,24 @@
           "type": "string"
         },
         "indonesianID": {
-          "type": "string"
+          "type": "string",
+          "format": "int64"
         },
         "birthday": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "createdAt": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "deletedAt": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "updatedAt": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         }
       },
       "xml": {
