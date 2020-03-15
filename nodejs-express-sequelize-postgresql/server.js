@@ -11,6 +11,12 @@ const cors = require("cors");
 
 const app = express();
 
+/** swagger documentation */
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./documentation/swagger.json');
+ 
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 /** drop existing tables and re-sync database */
 const db = require("./app/models");
 db.sequelize.sync({ force: true }).then(() => {
