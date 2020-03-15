@@ -8,6 +8,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const knex = require('./knex/knex.js');
 
 const app = express();
 
