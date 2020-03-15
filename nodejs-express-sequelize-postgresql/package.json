@@ -4,7 +4,7 @@
   "description": "Node.js RESTful APIs with Express, Sequelize & PostgreSQL",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [
     "nodejs",
@@ -37,6 +37,5 @@
     "coveragePathIgnorePatterns": [
       "/node_modules/"
     ]
-  },
-  "test": "jest"
+  }
 }
