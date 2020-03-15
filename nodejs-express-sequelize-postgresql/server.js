@@ -16,7 +16,7 @@ const app = express();
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./documentation/swagger.json');
  
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/documentation/v1', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 /** drop existing tables and re-sync database */
 const db = require("./app/models");
